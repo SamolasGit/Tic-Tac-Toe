@@ -34,4 +34,4 @@ You only need a modern web browser (Chrome, Firefox, Safari, or Edge).
 ### Installation
 1. Clone the repository:
    ```bash
-   git clone [https://github.com/your-username/neon-tic-tac-toe.git](https://github.com/your-username/neon-tic-tac-toe.git)
+   git clone [https://github.com/SamolasGit/neon-tic-tac-toe.git](https://github.com/your-username/neon-tic-tac-toe.git)
