@@ -1,0 +1,174 @@
+/* Box-sizing for all pseudo-elements */
+::after,
+::before {
+    box-sizing: border-box;
+}
+
+/* Variables */
+:root {
+    --cell-size: 100px;
+    --mark-size: calc(var(--cell-size) * 0.9);
+
+    --board-bg: #121212;
+    --cell-bg: #1e1e1e;
+    --border-color: #333;
+
+    --x-color: #ff3b3b;
+    --circle-color: #00fff7;
+
+    --hover-color-x: rgba(255, 59, 59, 0.5);
+    --hover-color-circle: rgba(0, 255, 247, 0.5);
+}
+
+/* Body */
+body {
+    margin: 0;
+    background-color: var(--board-bg);
+    font-family: 'Arial', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    color: #fff;
+}
+
+/* Board */
+.board {
+    display: grid;
+    grid-template-columns: repeat(3, auto);
+    gap: 10px;
+    background-color: #000;
+    padding: 20px;
+    border-radius: 20px;
+    box-shadow: 0 0 30px rgba(0, 255, 255, 0.2);
+}
+
+/* Cells */
+.cell {
+    width: var(--cell-size);
+    height: var(--cell-size);
+    background-color: var(--cell-bg);
+    border-radius: 12px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    border: 2px solid var(--border-color);
+}
+
+/* Cell hover effect */
+.cell:hover:not(.x):not(.circle) {
+    transform: scale(1.05);
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.1);
+}
+
+/* X mark */
+.cell.x::before,
+.cell.x::after {
+    content: '';
+    position: absolute;
+    width: calc(var(--mark-size) * 0.15);
+    height: var(--mark-size);
+    background-color: var(--x-color);
+    box-shadow: 0 0 8px var(--x-color);
+}
+
+.cell.x::before { transform: rotate(45deg); }
+.cell.x::after { transform: rotate(-45deg); }
+
+/* Circle mark */
+.cell.circle::before,
+.cell.circle::after {
+    content: '';
+    position: absolute;
+    border-radius: 50%;
+}
+
+.cell.circle::before {
+    width: var(--mark-size);
+    height: var(--mark-size);
+    background-color: var(--circle-color);
+    box-shadow: 0 0 10px var(--circle-color);
+}
+
+.cell.circle::after {
+    width: calc(var(--mark-size) * 0.7);
+    height: calc(var(--mark-size) * 0.7);
+    background-color: var(--board-bg);
+}
+
+/* Disable cursor for marked cells */
+.cell.x,
+.cell.circle {
+    cursor: not-allowed;
+}
+
+/* Hover preview for X */
+.board.x .cell:not(.x):not(.circle):hover::before,
+.board.x .cell:not(.x):not(.circle):hover::after {
+    content: '';
+    position: absolute;
+    width: calc(var(--mark-size) * 0.15);
+    height: var(--mark-size);
+    background-color: var(--hover-color-x);
+}
+
+.board.x .cell:not(.x):not(.circle):hover::before { transform: rotate(45deg); }
+.board.x .cell:not(.x):not(.circle):hover::after { transform: rotate(-45deg); }
+
+/* Hover preview for Circle */
+.board.circle .cell:not(.x):not(.circle):hover::before,
+.board.circle .cell:not(.x):not(.circle):hover::after {
+    content: '';
+    position: absolute;
+    border-radius: 50%;
+}
+
+.board.circle .cell:not(.x):not(.circle):hover::before {
+    width: var(--mark-size);
+    height: var(--mark-size);
+    background-color: var(--hover-color-circle);
+}
+
+.board.circle .cell:not(.x):not(.circle):hover::after {
+    width: calc(var(--mark-size) * 0.7);
+    height: calc(var(--mark-size) * 0.7);
+    background-color: var(--board-bg);
+}
+
+/* Winning message */
+.winning-message {
+    position: absolute;
+    top: 20px;
+    font-size: 2rem;
+    font-weight: bold;
+    display: none;
+    text-align: center;
+    width: 100%;
+    text-shadow: 0 0 10px #0ff, 0 0 20px #0ff;
+}
+
+.winning-message.show {
+    display: block;
+}
+
+/* Restart button */
+#restart-button {
+    margin-top: 10px;
+    padding: 12px 25px;
+    font-size: 1rem;
+    cursor: pointer;
+    border-radius: 10px;
+    border: none;
+    background: linear-gradient(135deg, #ff3b3b, #00fff7);
+    color: #fff;
+    box-shadow: 0 0 15px rgba(255, 59, 59, 0.5), 0 0 15px rgba(0, 255, 247, 0.5);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+#restart-button:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 25px rgba(255, 59, 59, 0.8), 0 0 25px rgba(0, 255, 247, 0.8);
+}
