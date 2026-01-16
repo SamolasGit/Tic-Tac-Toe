@@ -3,26 +3,39 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tic Tac Toe AI</title>
     <link rel="stylesheet" href="style.css">
     <script src="script.js" defer></script>
-    <title>Document</title>
 </head>
 <body>
-    <div class="board" id="board">
-        <div class="cell" data-cell></div>
-        <div class="cell" data-cell></div>
-        <div class="cell" data-cell></div>
-        <div class="cell" data-cell></div>
-        <div class="cell" data-cell></div>
-        <div class="cell" data-cell></div>
-        <div class="cell" data-cell></div>
-        <div class="cell" data-cell></div>
-        <div class="cell" data-cell></div>
-    </div>
-    <div class="winning-message" id="winning-message">
-        <div data-winning-message-text></div>
-        <button id="restart-button"> Restart </button>
 
-    </div>
+<div class="mode-selector">
+    <button id="human-vs-human" class="active">Human vs Human</button>
+    <button id="human-vs-ai">Human vs AI</button>
+</div>
+
+<div class="first-player-selector">
+    <label>AI First:</label>
+    <button id="ai-start-x">X</button>
+    <button id="ai-start-o" class="active">O</button>
+</div>
+
+<div class="board" id="board">
+    <div class="cell" data-cell></div>
+    <div class="cell" data-cell></div>
+    <div class="cell" data-cell></div>
+    <div class="cell" data-cell></div>
+    <div class="cell" data-cell></div>
+    <div class="cell" data-cell></div>
+    <div class="cell" data-cell></div>
+    <div class="cell" data-cell></div>
+    <div class="cell" data-cell></div>
+</div>
+
+<div class="winning-message" id="winning-message">
+    <div data-winning-message-text></div>
+    <button id="restart-button">Restart</button>
+</div>
+
 </body>
 </html>
