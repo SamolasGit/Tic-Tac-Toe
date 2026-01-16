@@ -11,9 +11,7 @@ A sleek, modern Tic-Tac-Toe web application featuring a vibrant **Neon Aesthetic
 
 * **Unbeatable AI:** Implements the **Minimax Algorithm**, ensuring the AI never loses.
 * **Neon UI:** A high-contrast, dark-mode design with glowing CSS effects.
-* **Responsive Design:** Playable on desktops, tablets, and smartphones.
 * **Dynamic Feedback:** Real-time game status updates (Turn, Win, Draw).
-* **Smooth Animations:** Transitions for mark placement and winning line highlights.
 
 ## 🧠 How the AI Works
 
